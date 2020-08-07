@@ -1,20 +1,20 @@
 package com.practice.ecommerce.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import lombok.AccessLevel;
+import javax.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 @Data
-//@RequiredArgsConstructor 
-//@NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
+@NoArgsConstructor
 @Entity
+
 public class Author {
 
 	@Id
@@ -26,4 +26,7 @@ public class Author {
 
 	@Column(name = "last_name")
 	private String lastName;
+
+	@OneToMany(mappedBy = "author",targetEntity = Book.class)
+	private List<Book> books;
 }
