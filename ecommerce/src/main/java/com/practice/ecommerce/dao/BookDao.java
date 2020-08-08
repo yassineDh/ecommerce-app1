@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.practice.ecommerce.model.Book;
 
+@Component
 public class BookDao {
 
 	@Autowired
@@ -20,8 +22,8 @@ public class BookDao {
 		return bookRepository.findById(id);
 	}
 
-	public void saveBook(Book book) {
-		bookRepository.save(book);
+	public Book saveBook(Book book) {
+		return bookRepository.save(book);
 	}
 
 	public void updateBook(Book book) {

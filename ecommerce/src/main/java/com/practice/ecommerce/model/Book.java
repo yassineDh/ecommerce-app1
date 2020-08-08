@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Data
 @NoArgsConstructor
@@ -23,11 +24,15 @@ public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	@NonNull
 	private String title;
 	
 	@Lob
 	private byte[] cover;
 	private int pages;
+	
+	@NonNull
 	private String edition;
 
 	@Column(name = "publication_date")
@@ -35,6 +40,7 @@ public class Book {
 	
 	@ManyToOne
 	@JoinColumn(name = "author_id", nullable = false)
+	@NonNull
 	private Author author;
 
 }
