@@ -19,7 +19,9 @@ import com.practice.ecommerce.model.Book;
 import com.practice.ecommerce.service.BookService;
 
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("/store")
 public class BookController {
@@ -32,8 +34,13 @@ public class BookController {
 	public ResponseEntity<Book> findAllBooks() {
 
 		List<Book> books = bookservice.findAllBooks();
-		if (books.size() == 0)
+		if (books.size() == 0) {
+			log.info("Empty list");
 			return new ResponseEntity<Book>(HttpStatus.NOT_FOUND);
+		}
+
+		log.info("list of books : " + books.toString());
+
 		return new ResponseEntity(books, HttpStatus.OK);
 	}
 
@@ -45,6 +52,7 @@ public class BookController {
 
 		if (book.isPresent()) {
 			Book bookVal = book.get();
+			log.info("book details : {} ", bookVal.toString());
 			return new ResponseEntity(bookVal, HttpStatus.OK);
 		}
 
@@ -53,36 +61,40 @@ public class BookController {
 
 	@PostMapping("/books")
 	@ApiOperation(value = "Add book")
-	public ResponseEntity<Book> addBook(@RequestBody Book book){
+	public ResponseEntity<Book> addBook(@RequestBody Book book) {
 		Optional<Book> bookSaved = Optional.of(bookservice.saveBook(book));
-		
-		if(bookSaved.isPresent()) {
+
+		if (bookSaved.isPresent()) {
+			log.info("book saved : {} ", bookSaved.get().toString());
 			return new ResponseEntity<Book>(HttpStatus.CREATED);
 		}
-		
+
+		log.info("book cannot be saved");
 		return new ResponseEntity<Book>(HttpStatus.BAD_REQUEST);
 	}
-	
+
 	@PutMapping("/books")
 	@ApiOperation(value = "Add book")
-	public ResponseEntity<Book> updateBook(@RequestBody Book book){
+	public ResponseEntity<Book> updateBook(@RequestBody Book book) {
 		Optional<Book> bookSaved = Optional.of(bookservice.saveBook(book));
-		
-		if(bookSaved.isPresent()) {
+
+		if (bookSaved.isPresent()) {
+			log.info("book updated : {} ", bookSaved.get().toString());
 			return new ResponseEntity<Book>(HttpStatus.ACCEPTED);
 		}
-		
+
+		log.info("book cannot be updated");
 		return new ResponseEntity<Book>(HttpStatus.BAD_REQUEST);
 	}
-	
+
 	@DeleteMapping("/books/{id}")
 	@ApiOperation(value = "Delete book by id")
-	public ResponseEntity<Book> deleteBookById(@PathVariable Long id){
+	public ResponseEntity<Book> deleteBookById(@PathVariable Long id) {
 		bookservice.deleteBook(id);
-		
+		log.info("book deleted");
 		return new ResponseEntity<Book>(HttpStatus.NO_CONTENT);
 	}
-	
+
 //	@GetMapping("/test1")
 //	public String test1() {
 //		return "Hello World";
