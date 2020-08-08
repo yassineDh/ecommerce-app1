@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -18,26 +20,32 @@ import lombok.NonNull;
 @Data
 @NoArgsConstructor
 @Entity
-
+@ApiModel(description="All details about the book.")
 public class Book {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@ApiModelProperty(notes="Book's title")
 	@NonNull
 	private String title;
 	
 	@Lob
 	private byte[] cover;
+	
+	@ApiModelProperty(notes="Book pages number")
 	private int pages;
 	
+	@ApiModelProperty(notes="Book's edition house")
 	@NonNull
 	private String edition;
 
+	@ApiModelProperty(notes="Book's date of publication")
 	@Column(name = "publication_date")
 	private Date publicationDate;
 	
+	@ApiModelProperty(notes="Book's author")
 	@ManyToOne
 	@JoinColumn(name = "author_id", nullable = false)
 	@NonNull
