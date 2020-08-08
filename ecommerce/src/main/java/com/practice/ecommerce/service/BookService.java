@@ -27,8 +27,8 @@ public class BookService {
 		return bookDao.saveBook(book);
 	}
 
-	public void updateBook(Book book) {
-		bookDao.saveBook(book);
+	public Book updateBook(Book book) {
+		return bookDao.saveBook(book);
 	}
 
 	public void deleteBook(Long id) {

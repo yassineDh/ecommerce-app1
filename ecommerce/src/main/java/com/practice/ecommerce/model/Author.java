@@ -9,6 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -32,6 +35,7 @@ public class Author {
 	@Column(name = "last_name")
 	private String lastName;
 
+	@JsonIgnoreProperties("author")
 	@OneToMany(mappedBy = "author",targetEntity = Book.class)
 	private List<Book> books;
 }

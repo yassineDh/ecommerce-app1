@@ -2,6 +2,7 @@ package com.practice.ecommerce.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -46,7 +47,7 @@ public class Book {
 	private Date publicationDate;
 	
 	@ApiModelProperty(notes="Book's author")
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name = "author_id", nullable = false)
 	@NonNull
 	private Author author;
