@@ -18,7 +18,7 @@ public class BookDao {
 		return bookRepository.findAll();
 	}
 
-	public Optional getBook(Long id) {
+	public Optional<Book> getBook(Long id) {
 		return bookRepository.findById(id);
 	}
 
