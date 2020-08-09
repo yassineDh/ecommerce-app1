@@ -7,10 +7,13 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class BookShortDescriptionComponent implements OnInit {
 
-  @Input() book : Object;
+  @Input() book;
   constructor() { }
 
   ngOnInit(): void {
+    console.log("the book name is :");
+    console.log(this.book.title);
+    console.log("**************************");   
   }
 
 }

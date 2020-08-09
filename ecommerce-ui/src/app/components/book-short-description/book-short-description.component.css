@@ -1,9 +1,8 @@
-
-section{
-    display: flex;
-    flex-direction: column;
+.display-card {
+    width: 200px;
+    text-align: center;
 }
+
 img{
-    height: 150px;
-    width: 100px;
+    height: 200px;
 }

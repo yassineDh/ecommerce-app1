@@ -54,8 +54,9 @@ public class Book {
 
 	@Override
 	public String toString() {
-		String str = "Title : " + title + ",Pages : " + pages + ",Edition : " + edition + ",Date of publication : "
-				+ publicationDate + ",Author : " + author.getFirstName() + " " + author.getLastName() + " \n";
+		String str = " \n" + "Title : " + title + ",Pages : " + pages + ",Edition : " + edition
+				+ ",Date of publication : " + publicationDate + ",Author : " + author.getFirstName() + " "
+				+ author.getLastName();
 		return str;
 	}
 }
