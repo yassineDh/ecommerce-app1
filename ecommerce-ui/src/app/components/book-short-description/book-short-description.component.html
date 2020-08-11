@@ -1,9 +1,9 @@
 <mat-card class="display-card"> 
     <mat-card-content>
-        <img mat-card-image src="https://i.pinimg.com/originals/7d/71/2f/7d712f26c2ea449bd45b902c73981a42.jpg">
+        <img mat-card-image src="https://i.pinimg.com/originals/7d/71/2f/7d712f26c2ea449bd45b902c73981a42.jpg" alt="Book's cover">
         <mat-card-title>{{book.title}}</mat-card-title>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>Consult</button>
+      <button mat-button (click)="openDialog()">Consult</button>
     </mat-card-actions>
   </mat-card>

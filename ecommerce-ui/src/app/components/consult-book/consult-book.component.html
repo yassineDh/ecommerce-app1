@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8 my-auto">
+            <div>
+                <h3 class="d-inline"><strong>Title : </strong></h3>
+                <p  class="d-inline">{{this.data.book.title}}</p>
+            </div>
+            <div>
+                <h3 class="d-inline"><strong>Author : </strong></h3>
+                <p  class="d-inline">{{this.data.book.author.firstName}} </p>
+                <p  class="d-inline">{{this.data.book.author.lastName}}</p>
+            </div>
+            <div>
+                <h3 class="d-inline"><strong>Pages : </strong></h3>
+                <p  class="d-inline">{{this.data.book.pages}}</p>
+            </div>
+            <div>
+                <h3 class="d-inline"><strong>Publication date : </strong></h3>
+                <p  class="d-inline">{{this.data.book.publicationDate | date : 'longDate'}}</p>
+            </div>
+            <div>
+                <h3 class="d-inline"><strong>Edition : </strong></h3>
+                <p  class="d-inline">{{this.data.book.edition}}</p>
+            </div>
+        </div>
+        <div class="col-4">
+            <img src="https://i.pinimg.com/originals/7d/71/2f/7d712f26c2ea449bd45b902c73981a42.jpg" alt="Book's cover" class="consult-cover">
+        </div>
+    </div>
+    <div class="row">
+        <div class="mx-auto mt-3">
+            <button type="button" class="btn btn-primary mr-5">Update</button>
+            <button type="button" class="btn btn-danger">Delete</button>
+        </div>
+    </div>
+</div>
