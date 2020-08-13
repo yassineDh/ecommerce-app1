@@ -1,1 +1,57 @@
-<p>add-book works!</p>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-8 mt-5 ml-4">
+        <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+          <div class="form-group row">
+            <label for="titleFor" class="col-2 col-form-label">Title :</label>
+            <div class="col-8">
+              <input type="text" class="form-control"  formControlName="title" id="titleFor" placeholder="book's title">
+            </div>
+          </div>
+          <div formGroupName="author"> 
+            <div class="form-group row">
+                <label for="firstNameFor" class="col-2 col-form-label">Author firstname :</label>
+                <div class="col-8">
+                  <input type="text" class="form-control" formControlName="firstName" id="firstNameFor" placeholder="firstname">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="lastNameFor" class="col-2 col-form-label">Author lastname :</label>
+                <div class="col-8">
+                  <input type="text" class="form-control" formControlName="lastName" id="lastnameFor" placeholder="lastname">
+                </div>
+              </div>
+          </div>
+          <div class="form-group row">
+            <label for="editionFor" class="col-2 col-form-label">Edition :</label>
+            <div class="col-8">
+              <input type="text" class="form-control"  formControlName="edition" id="editionFor" placeholder="Edition house">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="pagesFor" class="col-2 col-form-label">Pages :</label>
+            <div class="col-8">
+              <input type="text" class="form-control"  formControlName="pages" id="pagesFor" placeholder="book's pages">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="pagesFor" class="col-2 col-form-label">Publication date :</label>
+            <div class="col-8">
+                <mat-form-field color="primary" [floatLabel]="'never'" >
+                    <input matInput [matDatepicker]="picker2" placeholder="Date" formControlName="publicationDate" >
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                  </mat-form-field>
+            </div>
+          </div>
+          
+          <div class="form-group row">
+            <div class="col-8">
+              <button type="submit" class="btn btn-primary"> Add</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
