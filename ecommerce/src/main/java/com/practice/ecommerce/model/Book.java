@@ -32,8 +32,8 @@ public class Book {
 	@NonNull
 	private String title;
 
-	@Lob
-	private byte[] cover;
+	@Column(columnDefinition = "TEXT")
+	private String cover;
 
 	@ApiModelProperty(notes = "Book pages number")
 	private int pages;
