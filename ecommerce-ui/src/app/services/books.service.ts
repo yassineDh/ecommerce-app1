@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -17,4 +17,16 @@ export class BooksService {
   public saveBook(book): Observable<Object> {
     return this.http.post(this.urlApi, book);
   }
+
+  public updateBook(book): Observable<Object> {
+    return this.http.put(this.urlApi, book);
+  }
+
+  public deleteBook(bookId): Observable<Object> {
+    return this.http.delete((this.urlApi+"/"+bookId))
+  }
+
+  public books:Subject<any> = new Subject<any>();
+
+
 }

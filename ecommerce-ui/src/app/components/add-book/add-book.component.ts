@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { BooksService } from 'src/app/services/books.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-book',
@@ -17,7 +18,8 @@ export class AddBookComponent implements OnInit {
   cover64;
   constructor(
     private formBuilder: FormBuilder,
-    private booksService: BooksService
+    private booksService: BooksService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -63,5 +65,9 @@ export class AddBookComponent implements OnInit {
     this.booksService.saveBook(bookPar).subscribe((res) => {
       console.log(res);
     });
+  }
+  
+  back(){
+    this.router.navigate(['books']);
   }
 }
